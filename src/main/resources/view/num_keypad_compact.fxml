@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<TilePane
+        fx:id="tilePane"
+        fx:controller="br.edu.ucsal.sergiolj.javafxexemplos.controller.NumKeypadRegularController"
+        style="-fx-background-color: #272727;"
+        xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+/>
