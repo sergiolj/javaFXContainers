@@ -1,4 +1,4 @@
-package br.edu.ucsal.sergiolj.containers.navigation;
+package br.edu.ucsal.sergiolj.containers.chat.navigation;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -44,18 +44,11 @@ public class Navigation {
         }
     }
 
-    public static void loadNumKeypadReg(){
-        String fxml = "/view/num_keypad_compact.fxml";
-        String tittle = "Numeric Keyboard";
-        double width = 390;
+    public static void loadMainView(){
+        String fxml = "/view/chat/main_view.fxml";
+        String tittle = "Chat Java RMI";
+        double width = 420;
         double height = 450;
-        load(fxml,tittle,width,height);
-    }
-    public static void loadNumKeypadExp(){
-        String fxml = "/view/num_keypad_expanded.fxml";
-        String tittle = "Numeric Keyboard";
-        double width = 390;
-        double height = 500;
         load(fxml,tittle,width,height);
     }
 }

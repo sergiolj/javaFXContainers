@@ -18,3 +18,7 @@
 .numeric-card:pressed {
     -fx-background-color: #d0d0d0;
 }
+
+.tgb_switch{
+    -fx-background-color: #ff6363;
+}

@@ -1,4 +1,4 @@
-package br.edu.ucsal.sergiolj.containers.model;
+package br.edu.ucsal.sergiolj.containers.keypads.model;
 
 import java.util.List;
 

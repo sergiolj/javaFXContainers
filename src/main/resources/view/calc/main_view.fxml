@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ucsal.sergiolj.containers.keypads.controller.MainViewController">
+
+    <StackPane HBox.hgrow="ALWAYS">
+        <!-- Esses includes usam reflexão para serem adicionados à scene-->
+        <fx:include fx:id="keypad_reg" source="num_keypad_compact.fxml" />
+        <fx:include fx:id="keypad_ext" managed="false" source="num_keypad_extended.fxml" visible="false" />
+    </StackPane>
+
+    <VBox alignment="CENTER">
+        <ToggleButton fx:id="tgb_switch" mnemonicParsing="false" />
+    </VBox>
+
+</HBox>

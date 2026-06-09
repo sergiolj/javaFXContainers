@@ -1,6 +1,6 @@
-package br.edu.ucsal.sergiolj.containers;
+package br.edu.ucsal.sergiolj.containers.keypads;
 
-import br.edu.ucsal.sergiolj.containers.navigation.Navigation;
+import br.edu.ucsal.sergiolj.containers.keypads.navigation.Navigation;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -10,8 +10,7 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         Navigation.setStage(stage);
-        //Navigation.loadNumKeypadReg();
-        Navigation.loadNumKeypadExp();
+        Navigation.loadMainView();
 
     }
 

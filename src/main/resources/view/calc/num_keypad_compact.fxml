@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<TilePane fx:id="tile_pane_reg"
+          fx:controller="br.edu.ucsal.sergiolj.containers.keypads.controller.TileKeypadRegController"
+          xmlns="http://javafx.com/javafx/17.0.12"
+          xmlns:fx="http://javafx.com/fxml/1"
+/>
