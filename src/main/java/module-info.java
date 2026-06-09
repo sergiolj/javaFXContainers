@@ -1,6 +1,7 @@
 module br.edu.ucsal.sergiolj.containers {
     requires javafx.controls;
     requires javafx.fxml;
+    requires atlantafx.base;
 
     exports br.edu.ucsal.sergiolj.containers.keypads;
     opens br.edu.ucsal.sergiolj.containers.keypads to javafx.fxml;
