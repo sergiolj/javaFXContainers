@@ -18,10 +18,11 @@ public class ChatServerRemoteObject extends UnicastRemoteObject implements ChatS
     }
 
     @Override
-    public void registerUser(ClientInterface user) throws RemoteException {
+    public synchronized void registerUser(ClientInterface user) throws RemoteException {
         clients.add(user);
         System.out.println("New user " + user.userName() + " registered.");
         notifyAll();
+        notifyNewUser(user);
     }
 
     @Override
@@ -35,16 +36,27 @@ public class ChatServerRemoteObject extends UnicastRemoteObject implements ChatS
         }
     }
 
+    public List<String> getClients() {
+        List<String> users = new ArrayList<>();
+        if (!clients.isEmpty()) {
+            for (ClientInterface user : clients) {
+                users.add(user.toString());
+            }
+        }
+        return users;
+    }
+
     public void broadcast(ClientInterface user, String msg) throws RemoteException {
         System.out.println("Distribuindo mensagem de " + user.userName() + " para todos: " + msg);
         for (ClientInterface client : clients) {
             try{
                 client.broadcast("["+user.userName()+"] " + msg);
             }catch (RemoteException e){
-                e.printStackTrace();
+                System.out.println(e.getMessage());
             }
         }
     }
+
     public void runCommand(ClientInterface user, String cmd) throws RemoteException {
         if(cmd.startsWith("./")){
             switch (cmd){
@@ -68,14 +80,13 @@ public class ChatServerRemoteObject extends UnicastRemoteObject implements ChatS
     }
 
     public void notifyNewUser(ClientInterface user) throws RemoteException {
-        for (ClientInterface client : clients) {
             try{
-                if(!client.userName().equals(user.userName())){
-                    client.broadcast("["+user.userName()+"] Novo usuário registrado.");
+                if(!clients.isEmpty()){
+                    user.onlineUsersListChanged(getClients());
                 }
             }catch (RemoteException e){
-                e.printStackTrace();
+                System.out.println(e.getMessage());;
             }
         }
-    }
 }
+

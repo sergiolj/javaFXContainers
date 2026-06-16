@@ -2,6 +2,8 @@ package br.edu.ucsal.sergiolj.containers.chat.gui.controller;
 
 
 import br.edu.ucsal.sergiolj.containers.chat.gui.service.NetworkDataChecker;
+import br.edu.ucsal.sergiolj.containers.chat.gui.util.ChatServerSpecs;
+import br.edu.ucsal.sergiolj.containers.chat.gui.util.ChatServers;
 import br.edu.ucsal.sergiolj.containers.chat.shared.Config;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
@@ -10,19 +12,21 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import java.util.List;
 
 public class ConfigController {
     @FXML
-    private TextField txf_server_name = null, txf_server_port = null, txf_ip_address = null;
+    private TextField txf_server_name, txf_server_port, txf_ip_address;
+
+    @FXML
+    private ChoiceBox<ChatServerSpecs> chbox_servers_list;
 
     @FXML
     private Button btn_save;
-
-    @FXML
-    private VBox config;
 
     @FXML
     public void initialize(){
@@ -41,7 +45,16 @@ public class ConfigController {
                 txf_server_name.textProperty(),
                 txf_ip_address.textProperty(),
                 txf_server_port.textProperty());
+
+
+
         btn_save.disableProperty().bind(dataMatchesOriginal);
+
+        List<ChatServerSpecs> srvList = ChatServers.getInstance().getServersList();
+        chbox_servers_list.getItems().addAll(srvList);
+        if(!chbox_servers_list.getItems().isEmpty()) {
+            chbox_servers_list.getSelectionModel().select(0);
+        }
     }
 
     @FXML

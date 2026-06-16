@@ -3,9 +3,15 @@ package br.edu.ucsal.sergiolj.containers.chat.gui.navigation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -66,6 +72,7 @@ public class Navigation {
 
         } catch (Exception e) {
             System.out.println("Erro ao carregar janela modal: " + fxml);
+            System.out.println(e.getMessage());
         }
     }
 
@@ -91,6 +98,44 @@ public class Navigation {
         double width = 400;
         double height = 450;
         loadInModalWindow(fxml, tittle, width, height);
+    }
+    /**
+     * Essa foi uma janela About criada originalmente usando a classe Alert, mas para ter certa customização sobre o
+     * resultado, foi substituída pelo método usando Stage que possibilitou uma customização da centralização e
+     * das margens
+     *
+     */
+    public static void about() {
+        Stage dialogStage = new Stage();
+        dialogStage.setTitle("About Chat Client RMI");
+
+        //Uma janela modal é uma janela que bloqueia a janela atrás dela.
+        dialogStage.initModality(Modality.APPLICATION_MODAL);
+
+        VBox vbox = new VBox();
+        vbox.setAlignment(Pos.CENTER);
+        vbox.setSpacing(10);
+        vbox.setPadding(new Insets(20));
+
+        Label title = new Label("Chat Client Application");
+        title.setStyle("-fx-font-size: 16px; -fx-font-weight: bold;");
+        Label description = new Label("Este app foi desenvolvido pelo autor para" +
+                "\n explorar os conceitos e aplicações de Java FX.\n" +
+                "Verifique as configurações do servidor RMI disponível.");
+        description.setTextAlignment(TextAlignment.CENTER);
+
+        Button exit = new Button("Close");
+        exit.setOnAction(event -> {
+            dialogStage.close();
+        });
+
+        vbox.getChildren().addAll(title, description, exit);
+        Scene scene = new Scene(vbox);
+        dialogStage.setScene(scene);
+
+        dialogStage.sizeToScene();
+        dialogStage.setResizable(false);
+        dialogStage.showAndWait();
     }
 }
 

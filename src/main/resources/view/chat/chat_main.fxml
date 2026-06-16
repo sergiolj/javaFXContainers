@@ -1,32 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+<BorderPane minHeight="600.0" minWidth="800.0" xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="br.edu.ucsal.sergiolj.containers.chat.gui.controller.MainViewController">
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-            <Label alignment="TOP_LEFT" text="Janela de Batepapo" />
+      <VBox style="-fx-background-color: #ffffff" BorderPane.alignment="CENTER">
+            <Label alignment="TOP_LEFT" text="Janela de Chat" />
+         <padding>
+            <Insets left="20.0" />
+         </padding>
         </VBox>
    </center>
    <bottom>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-            <Label alignment="TOP_LEFT" text="Janela de Respostas" /></HBox>
+      <HBox minHeight="100.0" style="-fx-background-color: #979797" BorderPane.alignment="CENTER">
+            <Label alignment="TOP_LEFT" text="Janela de Respostas" />
+         <padding>
+            <Insets bottom="20.0" left="20.0" />
+         </padding></HBox>
    </bottom>
-   <left>
-      <Label text="Usuários Conectados" BorderPane.alignment="CENTER" />
-   </left>
    <top>
       <MenuBar BorderPane.alignment="TOP_LEFT">
           <Menu mnemonicParsing="false" text="File">
-              <MenuItem mnemonicParsing="false" text="Connect" onAction="#connectToServer"/>
-              <MenuItem mnemonicParsing="false" text="Config" onAction="#configServerSpecs" />
-              <MenuItem mnemonicParsing="false" text="Close" onAction="#exitApp" />
+              <MenuItem mnemonicParsing="false" onAction="#connectToServer" text="Connect" />
+              <MenuItem mnemonicParsing="false" onAction="#configServerSpecs" text="Config" />
+              <MenuItem mnemonicParsing="false" onAction="#exitApp" text="Close" />
           </Menu>
          <Menu mnemonicParsing="false" text="Help">
-            <MenuItem mnemonicParsing="false" text="About" onAction="#about"/>
+            <MenuItem mnemonicParsing="false" onAction="#about" text="About" />
          </Menu>
       </MenuBar>
    </top>
+   <left>
+      <ListView fx:id="listv_online_users" BorderPane.alignment="TOP_LEFT" />
+   </left>
 </BorderPane>

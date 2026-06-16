@@ -29,8 +29,9 @@ public class MainApp extends Application {
 
 
             stage.setScene(scene);
-            stage.setTitle("Cliente chat RMI");
+            stage.setTitle("Cliente Chat RMI");
             stage.centerOnScreen();
+
             stage.show();
 
         } catch (IllegalArgumentException | IOException e) {

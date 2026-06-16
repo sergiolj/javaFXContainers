@@ -10,9 +10,9 @@
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
         </padding>
         <Label text="User Name" />
-        <TextField fx:id="txf_user_name" prefWidth="200.0" GridPane.columnIndex="1" />
+        <TextField fx:id="txf_user_name" GridPane.columnIndex="1" />
         <Label text="Server Name" GridPane.rowIndex="1" />
-      <ChoiceBox prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <ChoiceBox fx:id="chbox_servers_list" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <columnConstraints>
          <ColumnConstraints />
          <ColumnConstraints />
