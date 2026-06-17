@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane minHeight="600.0" minWidth="800.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="br.edu.ucsal.sergiolj.chatrmi.gui.controller.MainViewController">
+   <center>
+           <ListView fx:id="lst_messages" BorderPane.alignment="CENTER" />
+   </center>
+   <bottom>
+         <TextArea fx:id="txt_area_message" prefHeight="100.0" promptText="Digite sua mensagem..." style="-fx-background-color: #4a4a4a" BorderPane.alignment="CENTER" />
+   </bottom>
+   <top>
+      <MenuBar BorderPane.alignment="TOP_LEFT">
+          <Menu mnemonicParsing="false" text="File">
+              <MenuItem mnemonicParsing="false" onAction="#connectToServer" text="Connect" />
+              <MenuItem fx:id="mi_disconnect" mnemonicParsing="false" onAction="#disconnectFromServer" text="Disconnect" />
+              <MenuItem mnemonicParsing="false" onAction="#configServerSpecs" text="Config" />
+              <MenuItem mnemonicParsing="false" onAction="#exitApp" text="Close" />
+          </Menu>
+         <Menu mnemonicParsing="false" text="Help">
+            <MenuItem mnemonicParsing="false" onAction="#about" text="About" />
+         </Menu>
+      </MenuBar>
+   </top>
+   <left>
+       <VBox BorderPane.alignment="TOP_LEFT">
+           <Label text="Online users" styleClass="label-titulo"/>
+           <ListView VBox.vgrow="ALWAYS" fx:id="lst_online_users" prefWidth="150.0" />
+         <cursor>
+            <Cursor fx:constant="CLOSED_HAND" />
+         </cursor>
+       </VBox>
+   </left>
+</BorderPane>
