@@ -5,5 +5,12 @@ jpackage --type app-image --name ChatServer --dest target/dist --runtime-image t
 
 A opção --win-console mantém uma janela de console para o processo, sem essa opção o jpackage assume que o programa possui
 uma interface gráfica.
+
+
 mvn clean javafx:jlink -Pclient
 jpackage --type app-image --name ChatCliente --dest target/dist --runtime-image target/app-cliente --module br.edu.ucsal.sergiolj.chatrmi/br.edu.ucsal.sergiolj.chatrmi.gui.MainApp
+
+mvn clean javafx:jlink -Padmin
+
+jpackage --type app-image --name AdminConsole --dest target/dist --runtime-image target/chatrmi-console --module br.edu.ucsal.sergiolj.chatrmi/br.edu.ucsal.sergiolj.chatrmi.server.AdminConsole --win-console
+

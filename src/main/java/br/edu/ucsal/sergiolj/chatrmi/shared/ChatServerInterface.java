@@ -8,4 +8,6 @@ import java.rmi.RemoteException;
         void processEntry(ClientInterface user, String msg) throws RemoteException;
         void onlineUsersChangedNotifyAll() throws RemoteException;
         void disconnectUser(ClientInterface user) throws RemoteException;
+        void shuttdown(String password) throws RemoteException;
+
     }

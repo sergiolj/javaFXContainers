@@ -12,6 +12,7 @@ import java.util.List;
 public class ChatServerRemoteObject extends UnicastRemoteObject implements ChatServerInterface  {
 
     private final List<ClientInterface> clients = new ArrayList<>();
+    private static final String ADMIN_PASSWORD = "admin";
 
     public ChatServerRemoteObject() throws RemoteException {
         super();
@@ -126,6 +127,23 @@ public class ChatServerRemoteObject extends UnicastRemoteObject implements ChatS
         System.out.println("User " + user.userName() + " disconnected.");
         notifyAll();
         onlineUsersChangedNotifyAll();
+    }
+
+    @Override
+    public void shuttdown(String password) throws RemoteException {
+        if(!password.equalsIgnoreCase(ADMIN_PASSWORD)){
+            throw new RemoteException("Acesso Negado: Senha de administrador incorreta.");
+        }
+        System.out.println("["+Config.getServerName()+"] Comando de desligamento recebido. Encerrando servidor RMI.");
+
+        new Thread(()-> {
+            try{
+                Thread.sleep(2000);
+            }catch (InterruptedException e){
+                System.out.println("Erro ao acionar desligamento do servidor " + e.getMessage());
+            }
+            System.exit(0);
+        }).start();
     }
 }
 
