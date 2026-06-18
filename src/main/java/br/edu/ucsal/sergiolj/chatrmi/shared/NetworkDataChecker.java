@@ -1,4 +1,4 @@
-package br.edu.ucsal.sergiolj.chatrmi.gui.service;
+package br.edu.ucsal.sergiolj.chatrmi.shared;
 
 public class NetworkDataChecker {
 
@@ -11,7 +11,7 @@ public class NetworkDataChecker {
      * @param name Nome do servidor RMI.
      * @return
      */
-    private static boolean isServerNameValid(String name) {
+    public static boolean isServerNameValid(String name) {
         //REGEX retorna verdadeiro se não houver espaços no texto.
         return name.matches("\\S+");
     }
@@ -25,7 +25,7 @@ public class NetworkDataChecker {
         return ip.matches(regexIPv4);
     }
 
-    private static boolean isPortNumberValid(String port) {
+    public static boolean isPortNumberValid(String port) {
         try{
             //Verifica se o TextField fornecido é um número.
             int portNumber = Integer.parseInt(port);

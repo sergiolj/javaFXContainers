@@ -1,7 +1,7 @@
 package br.edu.ucsal.sergiolj.chatrmi.gui.controller;
 
 
-import br.edu.ucsal.sergiolj.chatrmi.gui.service.NetworkDataChecker;
+import br.edu.ucsal.sergiolj.chatrmi.shared.NetworkDataChecker;
 import br.edu.ucsal.sergiolj.chatrmi.gui.service.ServerConfigFile;
 import br.edu.ucsal.sergiolj.chatrmi.gui.util.AlertWindow;
 import br.edu.ucsal.sergiolj.chatrmi.gui.util.ServerSpecs;
